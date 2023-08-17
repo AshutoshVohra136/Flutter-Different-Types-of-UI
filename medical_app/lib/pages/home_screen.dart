@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:medical_app/util/category_card.dart';
+import 'package:medical_app/util/doctor_card.dart';
 
 //  DRIBBLE DESIGN LINK
 // https://dribbble.com/shots/17942760-Medical-Mobile-App
@@ -54,7 +56,7 @@ class _HomePageState extends State<HomePage> {
               ),
 
               const SizedBox(
-                height: 25,
+                height: 15,
               ),
               // CARD HOW DO U FEEL
               Padding(
@@ -77,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                         width: 50,
                       ),
                       const SizedBox(
-                        width: 150,
+                        width: 10,
                       ),
                       Expanded(
                         child: Column(
@@ -132,7 +134,7 @@ class _HomePageState extends State<HomePage> {
               ),
               // SEARCH BAR
               const SizedBox(
-                height: 25,
+                height: 15,
               ),
               Padding(
                 padding: const EdgeInsets.all(25.0),
@@ -150,31 +152,74 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               const SizedBox(
-                height: 25,
+                height: 15,
               ),
               // HORIZONTAL LISTVIEW FOR DOCTORS
               SizedBox(
                 height: 80,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
+                  children: const [
+                    CategoryCard(
+                      categoryName: 'Dentist',
+                      iconImagePath: 'lib/icons/tooth.png',
+                    ),
+                    CategoryCard(
+                        categoryName: 'Surgeon',
+                        iconImagePath: 'lib/icons/dentist.png'),
+                    CategoryCard(
+                        categoryName: 'Pharmisist',
+                        iconImagePath: 'lib/icons/medicine.png'),
+                    CategoryCard(
+                        categoryName: 'Pharmisist',
+                        iconImagePath: 'lib/icons/medicine.png'),
+                    CategoryCard(
+                        categoryName: 'Pharmisist',
+                        iconImagePath: 'lib/icons/medicine.png'),
+                    CategoryCard(
+                        categoryName: 'Pharmisist',
+                        iconImagePath: 'lib/icons/medicine.png'),
+                  ],
+                ),
+              ),
+              //DOCTORS LIST
+              const SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      color: Colors.deepPurple[100],
-                      padding: const EdgeInsets.all(20),
-                      child: Row(
-                        children: [
-                          Image.asset(
-                            'lib/icons/tooth.png',
-                            height: 40,
-                          ),
-                          const Text('Dentist'),
-                        ],
+                    const Text(
+                      'Doctors List',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    ),
+                    Text(
+                      'See all',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        color: Colors.grey[600],
                       ),
                     ),
                   ],
                 ),
-              )
-              //DOCTORS LIST
+              ),
+
+              Expanded(
+                  child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: const [
+                  DoctorCard(),
+                  DoctorCard(),
+                  DoctorCard(),
+                  DoctorCard(),
+                  DoctorCard(),
+                  DoctorCard(),
+                ],
+              ))
             ],
           ),
         ),
